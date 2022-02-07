@@ -126,3 +126,21 @@ const getUV = (lat, long, cityName) => {
 $("#searchBtn").on("click", function (e) {
     e.preventDefault()
     city = $("#searchBox").val()
+     
+  //CHECKING TO SEE IF CITY DATA IS IN ARRAY, NO? PUSH TO ARRAY WITH A NEW BUTTON
+  if (pastCities.indexOf(city) == -1 && invalidEntry === false) {
+    pastCities.push(city)
+    //BUTTON CREATED
+    var cityHistory = document.createElement("button")
+    cityHistory.id = "saved-city"+pastCities.length
+    cityHistory.classList.add("w3-button", "w3-gray", "w3-round", "saved-city")
+    cityHistory.textContent = city
+    
+    $("#past-searches").append(cityHistory)
+    
+  }
+  invalidEntry = false
+  
+  setLocalStorage()
+  getCoordinates(city)
+});
