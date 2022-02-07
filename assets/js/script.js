@@ -144,3 +144,12 @@ $("#searchBtn").on("click", function (e) {
   setLocalStorage()
   getCoordinates(city)
 });
+
+//SAVE PAST SEARCHES TO LOCAL STORAGE AND UPDATE ARRAY
+const setLocalStorage = () => {
+    for (var i = 0; i < pastCities.length; i++) {
+      localStorage.setItem("savedSearches", JSON.stringify(pastCities));
+    }
+    pastCities = JSON.parse(localStorage.getItem("savedSearches"));
+    return
+  }
