@@ -82,4 +82,35 @@ const getUV = (lat, long, cityName) => {
 
           //CLEAR THE LAST FORECAST
           $(".forecast").empty()
-          
+
+          //FORECAST WEATHER CONDITIONS
+
+          $("#five-day-header").text("5-Day Forecast:")
+    
+          for (var i = 1; i < 6; i++) {
+            var fiveDayDate = moment.unix(data.daily[i].dt).format('LL')
+            var fiveDayTemp = data.daily[i].temp.day;
+            var fiveDayWind = data.daily[i].wind_speed;
+            var fiveDayHumidity = data.daily[i].humidity;
+            var fiveDayIcon = data.daily[i].weather[0].icon;
+
+            var weatherIcon = document.createElement("img")
+            weatherIcon.setAttribute("src",`http://openweathermap.org/img/wn/${fiveDayIcon}.png`)
+
+            //ADDING TEXT AND FORMATTING TO FORECAST BOXES
+            $(".forecast").addClass("w3-card w3-blue")
+
+            var forecastBox = document.createElement("div")
+            forecastBox.id = `weather-day-${[i]}`
+            forecastBox.classList.add("w3-card", "w3-blue" )
+            var forecastDate = document.createElement("h4")
+            forecastDate.textContent = fiveDayDate
+            var forecastTemp = document.createElement("p")
+            forecastTemp.textContent = `Temp: ${fiveDayTemp}°F`
+            var forecastWind = document.createElement("p")
+            forecastWind.textContent = `Wind: ${fiveDayWind} MPH`
+            var forecastHumidity = document.createElement("p")
+            forecastHumidity.textContent = `Humidity: ${fiveDayHumidity}%`
+
+            $("#day"+[i]).append(forecastDate, weatherIcon, forecastTemp, forecastWind, forecastHumidity)
+          }          
