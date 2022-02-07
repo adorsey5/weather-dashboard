@@ -1,0 +1,31 @@
+h1 {
+    font-weight: bold;
+    background-image: linear-gradient(to right, rgba(62, 122, 233, 0.788) , rgb(5, 31, 83));
+}
+
+h3 {
+    font-weight: bold;
+}
+
+h4 {
+    font-weight: bold;
+}
+
+#searchBtn {
+    width: 100%;
+}
+
+#current-uv-index {
+    width: 150px
+}
+
+
+.w3-card {
+    margin: 1%;
+}
+
+.saved-city {
+    width: 100%;
+    margin-top: 1.5%;
+    margin-bottom: 1.5%;
+}
