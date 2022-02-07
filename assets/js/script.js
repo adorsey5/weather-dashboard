@@ -45,3 +45,23 @@ const getUV = (lat, long, cityName) => {
       fetch(apiURL).then(function (response) {
         if (response.ok) {
           response.json().then(function (data) {
+            
+          //CURRENT CITY INFO UPDATED
+          var todaysDate = moment.unix(data.current.dt).format('LL')
+          var weatherIcon = data.current.weather[0].icon;
+          var icon = document.createElement("img")
+          icon.setAttribute("src",`http://openweathermap.org/img/wn/${weatherIcon}.png`)
+          $("#currentCity").text(`${cityName} (${todaysDate})`)
+          $("#currentCity").append(icon)
+
+          //ADDED BORDER IN DIV
+          $("#forecast-today").addClass("w3-border")
+
+          //CURRENT CITY FORECAST CONDITIONS
+          var temp = data.current.temp;
+          var wind = data.current.wind_speed;
+          var humidity = data.current.humidity;
+
+          $("#current-temp").text(`Temp: ${temp}°F`);
+          $("#current-wind").text(`Wind: ${wind} MPH`);
+          $("#current-humidity").text(`Humidity: ${humidity}%`);
