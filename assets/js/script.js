@@ -114,3 +114,15 @@ const getUV = (lat, long, cityName) => {
 
             $("#day"+[i]).append(forecastDate, weatherIcon, forecastTemp, forecastWind, forecastHumidity)
           }          
+        }).catch((error) => {
+            console.log(error)
+          })
+        }
+      })
+    }
+  }
+  
+//SEARCH BUTTON EVENT LISTENER
+$("#searchBtn").on("click", function (e) {
+    e.preventDefault()
+    city = $("#searchBox").val()
