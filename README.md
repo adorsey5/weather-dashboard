@@ -43,7 +43,7 @@ THEN I am again presented with current and future conditions for that city
 
 Click the following link to visit the webpage:
 
-[A live link to the webpage](https://adorsey5.github.io/work-day-scheduler/)
+[A live link to the webpage](https://adorsey5.github.io/weather-dashboard/)
 
 
 The following image is a screenshot of the webpage:
