@@ -65,3 +65,21 @@ const getUV = (lat, long, cityName) => {
           $("#current-temp").text(`Temp: ${temp}°F`);
           $("#current-wind").text(`Wind: ${wind} MPH`);
           $("#current-humidity").text(`Humidity: ${humidity}%`);
+          
+          
+          var uv = data.current.uvi
+          var uvBox = $("#current-uv-index")
+          uvBox.text(`UV Index: ${uv}`)
+          uvBox.removeClass("w3-green w3-red w3-yellow")
+          // COLORS OF UV VALUES
+          if (uv < 3) {
+            uvBox.addClass("w3-green")
+          } else if (uv > 7) {
+            uvBox.addClass("w3-red")
+          } else {
+            uvBox.addClass("w3-yellow")
+          }
+
+          //CLEAR THE LAST FORECAST
+          $(".forecast").empty()
+          
