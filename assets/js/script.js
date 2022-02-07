@@ -37,3 +37,11 @@ const getCoordinates = (city) => {
       console.log(error)
     })
   }
+  //RETRIEVED CITY LATITUDE AND LONGITUDE FOR UVINDEX
+const getUV = (lat, long, cityName) => {
+    if (lat && long) {
+      var apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=imperial&exclude=hourly,minutely,alerts&appid=${apiKey}`
+  
+      fetch(apiURL).then(function (response) {
+        if (response.ok) {
+          response.json().then(function (data) {
