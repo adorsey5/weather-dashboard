@@ -13,3 +13,27 @@ for (var i = 0; i < pastCities.length; i++) {
   $("#past-searches").append(cityHistory)
   
 }
+
+//CITY AND COORDINATES TO RETRIEVE getUV API call
+const getCoordinates = (city) => {
+
+    var apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units&appid=${apiKey}`
+  
+    fetch(apiURL).then(function (response) {
+      if (response.ok) // returns true if the response returned successfully
+      {
+        response.json().then(function (data) {
+          var lat = data.coord.lat
+          var long = data.coord.lon
+          var cityName = data.name
+          getUV(lat, long, cityName);    
+         })
+      } else {
+        alert("Invalid City Name, please try again!")
+        invalidEntry = true
+        
+      }
+    }).catch((error) => {
+      console.log(error)
+    })
+  }
