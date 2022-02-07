@@ -153,3 +153,11 @@ const setLocalStorage = () => {
     pastCities = JSON.parse(localStorage.getItem("savedSearches"));
     return
   }
+  
+//CREATED EVENT LISTENER FOR PAST SEARCHES
+$(".saved-city").on("click", function (e) {
+    e.preventDefault()
+    city = $(this).text()
+    getCoordinates(city)
+    
+  });
