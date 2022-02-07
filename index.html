@@ -9,3 +9,19 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
+    
+    <header>
+        <h1 class="w3-container w3-center w3-text-white">Weather Dashboard</h1>
+    </header>
+
+    <main class="w3-row">
+                <!-- CURRENT SEARCH and PAST SEARCHES-->
+        <div class="w3-container w3-col m4 l3" id="search">
+            <form class="w3-container">
+            <label><h3>Search for a City:</h3></label>
+            <input class="w3-input w3-border w3-margin-bottom w3-round w3-white" type="text" id="searchBox">
+            <button class="w3-button w3-round w3-blue" id="searchBtn">Search</button>
+            <div class="w3-bottombar w3-padding"></div>
+            <div id="past-searches"></div>
+            </form>
+        </div>
